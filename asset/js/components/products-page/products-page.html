@@ -1,0 +1,30 @@
+﻿<div class="products-page">
+	<h1>
+		Womens tops
+		<select name="filter" class="pull-right" ng-model="vm.filterSize">
+			<option value="">Filter by size</option>
+			<option value="XS">Extra Small</option>
+			<option value="S">Small</option>
+			<option value="M">Medium</option>
+			<option value="L">Large</option>
+			<option value="XL">Extra Large</option>
+		</select>
+	</h1>
+	<div class="products-con">
+		<div class="">
+		    <div ng-repeat="product in vm.products | filter: vm.filterFn" class="product-item">
+			    <div class="product-item-inner">
+				    <div class="img-con"><img ng-src={{'asset/images/'+product.productImage}} alt="{{product.productName}}"></div>
+				    <div class="special-con">
+					    <div class="exclusive" ng-if="product.isExclusive">Exclusive</div>
+					    <div class="sale" ng-if="product.isSale">Sale</div>
+				    </div>
+				    <div class="clearfix description-con">
+					     <span class="pull-left name-con">{{product.productName}}</span>
+					    <span class="pull-right price-con">{{product.price}}</span>
+				    </div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+</div>
